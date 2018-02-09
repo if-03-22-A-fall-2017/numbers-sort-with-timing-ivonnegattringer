@@ -18,21 +18,20 @@ void init_random(int* array, int number){
 	}
 }
 	void bubble_sort(int* array, int number){
-		int j;
-		bool elements_were_swapped;
-		int last_unsorted_element = number - 1;
-		do {
-			elements_were_swapped = false;
-			for (j = 0; j < last_unsorted_element; j++) {
-				if (array[j] > array[j + 1]) {
-					int swap = array[j];
-					array[j] = array[j+1];
-					array[j+1] = swap;
-					elements_were_swapped = true;
+		int endNumber = number-1;
+		bool is_sorted = false;
+		while (is_sorted == false) {
+			is_sorted = true;
+			for (int i = 0; i < endNumber; i++) {
+				if(array[i]> array[i+1]){
+					int swap = array[i];
+					array[i] = array[i+1];
+					array[i+1] = swap;
+					is_sorted = false;
 				}
+				endNumber--;
 			}
-			last_unsorted_element--;
-		} while (elements_were_swapped);
+		}
   }
 void	insertion_sort(int* array, int number){
 	int j,i;
